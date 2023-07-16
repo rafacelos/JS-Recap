@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JS Revisão</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <title>JS Revisão</title>
 </head>
 <body>
     <header>
@@ -22,27 +27,38 @@
             <li>Crie um script que declare uma variável e verifique se o seu valor é um número par. Se for, exiba a mensagem "É um número par", caso contrário, exiba a mensagem "Não é um número par".</li>
             <li>Crie um script que declare uma variável e verifique se o seu valor é um número ímpar. Se for, exiba a mensagem "É um número ímpar", caso contrário, exiba a mensagem "Não é um número ímpar".</li>     
         </ol>
-        <p id="x">Variável A: </p>
-        <p id="y">Variável B: </p>
-        <p id="z">Variável C: </p>
-    
+
         <div class="result">
             <h2>
                 Clique no botão abaixo correspondente ao número do exercício:
             </h2>
+            <p>
+                <span>Observação:</span>
+                Para fins de simplificar o exercício, as variáveis A e B serão dadas até o número 100. A variável C poderá ser uma letra do alfabeto ou um número.
+            </p>
         </div>
-    
-        <section class="resultSelection">
-            <button id="1">1</button>
-            <button id="2">2</button>
-            <button id="3">3</button>
-            <button id="4">4</button>
-            <button id="5">5</button>
-            <button id="6">6</button>
-            <button id="7">7</button>
-            <button id="8">8</button>
-            <button id="9">9</button>
-        </section>    
+        
+        <div class="resultSelection">
+            <button id="one">1</button>
+            <button id="two">2</button>
+            <button id="three">3</button>
+            <button id="four">4</button>
+            <button id="five">5</button>
+            <button id="six">6</button>
+            <button id="seven">7</button>
+            <button id="eight">8</button>
+            <button id="nine">9</button>
+        </div>
+        <div class="results">
+            <div class="variables">
+                <p>Variável A: <span id="x">***</span></p>
+                <p>Variável B: <span id="y">***</span></p>
+                <p>Variável C: <span id="z">*</span></p>
+            </div>
+            <div class="reply">
+                <p id="replyText">Resultado dos exercícios</p>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -50,7 +66,6 @@
             Feito por @rafacelos
         </h3>
     </footer>
-
     <script src="main.js"></script>
 </body>
 </html>
