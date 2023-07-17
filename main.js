@@ -1,6 +1,16 @@
 let xValue
 let yValue
-let zValue = '';
+let zValue
+
+const btn1 = document.querySelector("main .resultSelection #one");
+const btn2 = document.querySelector("main .resultSelection #two");
+const btn3 = document.querySelector("main .resultSelection #three");
+const btn4 = document.querySelector("main .resultSelection #four");
+const btn5 = document.querySelector("main .resultSelection #five");
+const btn6 = document.querySelector("main .resultSelection #six");
+const btn7 = document.querySelector("main .resultSelection #seven");
+const btn8 = document.querySelector("main .resultSelection #eight");
+const btn9 = document.querySelector("main .resultSelection #nine");
 
 const generateX = () => {
     xValue = Math.floor(Math.random() * 100)
@@ -15,28 +25,26 @@ const generateY = () => {
 };
 
 const generateZ = () => {
-    let caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    zValue = caracteres.charAt(Math.floor(Math.random() * caracteres.length))
+    let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    zValue = chars.charAt(Math.floor(Math.random() * chars.length))
     document.querySelector(".variables #z").innerText = `${zValue}`
-
     return zValue
 };
+
+const generateType = () => {
+    let randomType = [1, 2, "A", "B", true, false]
+    let arrayCounter = randomType.length
+    zValue = randomType[(Math.floor(Math.random() * arrayCounter))]
+    document.querySelector(".variables #z").innerText = `${zValue}`
+    return zValue
+}
 
 const resetVars = () => {
     document.querySelector(".variables #x").innerText = `***`
     document.querySelector(".variables #y").innerText = `***`
     document.querySelector(".variables #z").innerText = `*`
+    document.querySelector(".results .reply #replyText").innerText = `Resultado dos exercícios`
 }
-
-const btn1 = document.querySelector("main .resultSelection #one");
-const btn2 = document.querySelector("main .resultSelection #two");
-const btn3 = document.querySelector("main .resultSelection #three");
-const btn4 = document.getElementById(four);
-const btn5 = document.getElementById(five);
-const btn6 = document.getElementById(six);
-const btn7 = document.getElementById(seven);
-const btn8 = document.getElementById(eight);
-const btn9 = document.getElementById(nine);
 
 btn1.addEventListener("click", () => {
     resetVars()
@@ -47,8 +55,8 @@ btn2.addEventListener("click", () => {
     resetVars()
     generateX()
     generateY()
-    let oneResult = xValue + yValue
-    document.querySelector(".results .reply #replyText").innerText = `A soma da variável A + B é igual à: ${oneResult}`
+    let sumResult = xValue + yValue
+    document.querySelector(".results .reply #replyText").innerText = `A soma da variável A + B é igual à: ${sumResult}`
 });
 
 btn3.addEventListener("click", () => {
@@ -57,9 +65,44 @@ btn3.addEventListener("click", () => {
     isNaN(zValue) ? (document.querySelector(".results .reply #replyText").innerText = `A variável nao é um número`) : (document.querySelector(".results .reply #replyText").innerText = `A variável é um número`)
 });
 
-btn4.addEventListener("click", myScript);
-btn5.addEventListener("click", myScript);
-btn6.addEventListener("click", myScript);
-btn7.addEventListener("click", myScript);
-btn8.addEventListener("click", myScript);
-btn9.addEventListener("click", myScript);
+btn4.addEventListener("click", () => {
+    resetVars()
+    generateZ()
+    isNaN(zValue) ? (document.querySelector(".results .reply #replyText").innerText = `A variável é uma string`) : (document.querySelector(".results .reply #replyText").innerText = `A variável nao é uma string`)
+});
+
+btn5.addEventListener("click", () => {
+    resetVars()
+    generateType()
+    typeof zValue == "boolean" ? (document.querySelector(".results .reply #replyText").innerText = `A variável é um Boolean`) : (document.querySelector(".results .reply #replyText").innerText = `A variável nao é um Boolean`)
+});
+
+btn6.addEventListener("click", () => {
+    resetVars()
+    generateX()
+    generateY()
+    let subResult = xValue - yValue
+    document.querySelector(".results .reply #replyText").innerText = `A subtraçao da variável - B é igual à: ${subResult}`
+});
+
+btn7.addEventListener("click", () => {
+    resetVars()
+    generateX()
+    generateY()
+    let divResult = (xValue / yValue).toFixed(2)
+    document.querySelector(".results .reply #replyText").innerText = `A divisao da variável A / B é igual à: ${divResult}`
+});
+
+btn8.addEventListener("click", () => {
+    resetVars()
+    generateX()
+    let moduleResult = xValue % 2
+    moduleResult == 0 ? document.querySelector(".results .reply #replyText").innerText = `É um número par` : document.querySelector(".results .reply #replyText").innerText = `Não é um número par`
+});
+
+btn9.addEventListener("click", () => {
+    resetVars()
+    generateX()
+    let moduleResult = xValue % 2
+    moduleResult != 0 ? document.querySelector(".results .reply #replyText").innerText = `É um número ímpar` : document.querySelector(".results .reply #replyText").innerText = `Não é um número ímpar`
+});
