@@ -82,7 +82,7 @@ btn6.addEventListener("click", () => {
     generateX()
     generateY()
     let subResult = xValue - yValue
-    document.querySelector(".results .reply #replyText").innerText = `A subtraçao da variável - B é igual à: ${subResult}`
+    document.querySelector(".results .reply #replyText").innerText = `A subtraçao da variável A - B é igual à: ${subResult}`
 });
 
 btn7.addEventListener("click", () => {
